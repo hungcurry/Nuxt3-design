@@ -1,5 +1,77 @@
-<script setup></script>
+<script setup>
+const isOpen = ref(false);
+const elHeight = ref(34);
+const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
+const domH = computed(() => {
+  return isOpen.value === true
+    ? `${listArr.length * elHeight.value + 16}px`
+    : 0 + 'px';
+});
+const clickMe = () => {
+  isOpen.value = !isOpen.value;
+};
+</script>
 <template>
-  <h2>This is an Header</h2>
+  <header class="header bg-white">
+    <div
+      class="container relative flex flex-wrap items-center justify-between py-4 lg:flex-nowrap lg:justify-end lg:py-6"
+    >
+      <button type="button" @click="clickMe" class="p-1 leading-none lg:hidden">
+        <span class="material-icons">reorder</span>
+      </button>
+      <h1 class="logo" title="樂悠悠售票網">
+        <a href="javascript:;" class="block text-lg text-primary"
+          >樂悠悠售票網</a
+        >
+      </h1>
+      <a href="javascript:;" class="block leading-none lg:order-last">
+        <span class="material-icons text-black">shopping_cart</span>
+        <span
+          class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 rounded-full border-0 bg-secondary font-700 text-white"
+          >3
+        </span>
+      </a>
+      <!-- collapse -->
+      <div
+        :style="{ height: domH }"
+        class="navbar-collapse flex-grow basis-full items-center lg:flex-grow-0 lg:basis-auto"
+      >
+        <ul class="navbar-nav mt-4 flex list-none flex-col lg:mt-0 lg:flex-row">
+          <li class="lg:mr-8" v-for="item in listArr" :key="item.name">
+            <a
+              href="javascript:;"
+              class="block p-[0.5rem] text-center text-muted"
+              >{{ item.name }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.header {
+  left: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  @include pad(992) {
+    position: static;
+  }
+  .logo {
+    @include pad(992) {
+      @include posCenter;
+    }
+  }
+  .navbar-collapse {
+    overflow: hidden;
+    transition: height 0.4s;
+    @include pad(992) {
+      height: initial !important;
+    }
+  }
+  .navbar-collapse.open {
+    overflow: visible;
+  }
+}
+</style>
