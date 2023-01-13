@@ -52,5 +52,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  sourcemap: {
+    server: true,
+    client: true,
+  },
   modules: ['@vueuse/nuxt', '@pinia/nuxt'],
 });
