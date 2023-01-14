@@ -19,9 +19,9 @@ const clickMe = () => {
       <button type="button" @click="clickMe" class="p-1 leading-none lg:hidden">
         <span class="material-icons">reorder</span>
       </button>
-      <h1 class="logo" title="樂悠悠售票網">
+      <h1 class="logo" title="EXHIBINECTION">
         <a href="javascript:;" class="block text-lg text-primary"
-          >樂悠悠售票網</a
+          >EXHIBINECTION</a
         >
       </h1>
       <a href="javascript:;" class="block leading-none lg:order-last">
