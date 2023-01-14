@@ -1,13 +1,16 @@
 <script setup>
 const route = useRoute();
-const path = ref('/');
+const path = ref('');
 watch(
   () => route.path,
   (newV, oldV) => {
     path.value = newV;
-    console.log('newV', newV);
   },
 );
+
+onMounted(() => {
+  path.value = route.path;
+});
 </script>
 <template>
   <section
@@ -17,8 +20,9 @@ watch(
     <div class="container h-full text-white">
       <div class="row h-full items-end md:items-center">
         <div class="col-md-11 md:ml-[8.3333%]">
-          <h2 class="mb-2 font-700">台北當代藝術展</h2>
-          <p class="mb-4 text-m font-700">01 JUN - 31 OCT</p>
+          <h2 class="mb-2 font-700">THUMB-STOPPING CREATIVE</h2>
+          <p class="text-lg">令人驚嘆的創意!</p>
+          <p class="text-s mb-4 font-700">01 JUN - 31 OCT</p>
           <div class="flex">
             <a
               href="javascript:;"
@@ -27,7 +31,7 @@ watch(
             >
             <a
               href="javascript:;"
-              class="btn-outline btn-lg btn w-1/2 border border-white text-base text-white md:w-auto md:px-12"
+              class="btn-outline btn-lg btn w-1/2 border border-white text-base text-white hover:bg-white hover:text-black md:w-auto md:px-12"
               >詳細資訊</a
             >
           </div>

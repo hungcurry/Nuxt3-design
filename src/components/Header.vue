@@ -12,7 +12,7 @@ const clickMe = () => {
 };
 </script>
 <template>
-  <header class="header bg-white">
+  <header class="header border-b border-black bg-white">
     <div
       class="container relative flex flex-wrap items-center justify-between py-4 lg:flex-nowrap lg:justify-end lg:py-6"
     >
@@ -20,9 +20,7 @@ const clickMe = () => {
         <span class="material-icons">reorder</span>
       </button>
       <h1 class="logo" title="EXHIBINECTION">
-        <a href="javascript:;" class="block text-lg text-primary"
-          >EXHIBINECTION</a
-        >
+        <a href="/" class="block text-lg text-primary">EXHIBINECTION</a>
       </h1>
       <a href="javascript:;" class="block leading-none lg:order-last">
         <span class="material-icons text-black">shopping_cart</span>
