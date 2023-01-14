@@ -4,6 +4,7 @@
     <Jumbotron />
     <Nav />
     <slot />
+    <Subscription />
     <Footer />
   </div>
 </template>
