@@ -18,7 +18,7 @@
   }
   
   .taiCardBox {
-    @apply xx:bg-green-400 box-border flex w-full rounded-lg bg-gray-800 px-4 py-3 sm:bg-red-400 md:bg-yellow-400;
+    @apply box-border flex w-full rounded-lg bg-gray-800 px-4 py-3 sm:bg-red-400 md:bg-yellow-400;
   }
 
   .taiCard {
@@ -51,5 +51,17 @@
     color: #d3d1d1;
     pointer-events: none;
     user-select: none;
+  }
+
+  .linkArea {
+    @include width(100%, 100%);
+  
+    display: block;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -100%;
+    top: 0;
+    z-index: 1;
   }
 }

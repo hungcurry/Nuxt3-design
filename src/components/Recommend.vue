@@ -59,20 +59,6 @@ const { listArr } = useSwiperStore();
     </div>
   </section>
 </template>
-<style lang="scss" scoped>
-.linkArea {
-  @include width(100%, 100%);
-
-  display: block;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  text-indent: -100%;
-  top: 0;
-  z-index: 1;
-}
-</style>
-
 <style lang="scss">
 // swiper
 .swiper-slide {
