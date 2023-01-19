@@ -1,5 +1,8 @@
 <script setup></script>
 <template>
-  <CardPopular />
+  <main>
+    <CardPopular />
+    <Review />
+  </main>
 </template>
 <style lang="scss" scoped></style>
