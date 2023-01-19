@@ -37,6 +37,6 @@ useHead({
 </template>
 <style lang="scss">
 * {
-  outline: 1px solid red;
+  // outline: 1px solid red;
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination } from 'swiper';
+import SlotTitle from '@/components/Slots/SlotTitle.vue';
 // modules 這個要自己設定
 const modules = ref([Autoplay, Pagination]);
 // swiper圖片
@@ -9,7 +10,7 @@ const { listArr } = useSwiperStore();
 <template>
   <section class="recommend">
     <div class="container">
-      <h2 class="mb-2 text-2xl font-700 md:mb-6">猜你也喜歡...</h2>
+      <slot-title>猜你也喜歡...</slot-title>
       <div class="row mb-6 md:mb-12">
         <div class="col-12 col-lg-11 lg:ml-[8.3333%]">
           <!-- Swiper -->
