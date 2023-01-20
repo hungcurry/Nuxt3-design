@@ -6,11 +6,13 @@ import { FetchStore } from './useFetchStore.js';
 import { PositionStore } from './usePositionStore.js';
 // swiper
 import { SwiperStore } from './useSwiperStore.js';
-// swiper
+// Product
 import { ProductStore } from './useProductStore.js';
+import { DetailStore } from './useProductDetailStore.js';
 
 export const useCountStore = CountStore;
 export const useFetchStore = FetchStore;
 export const usePositionStore = PositionStore;
 export const useSwiperStore = SwiperStore;
 export const useProductStore = ProductStore;
+export const useDetailStore = DetailStore;

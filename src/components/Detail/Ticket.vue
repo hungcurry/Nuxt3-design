@@ -1,5 +1,7 @@
 <script setup>
-const { num, addCount } = useAddCount();
+const store = useAddCount();
+const { addCount } = store;
+const { num } = storeToRefs(store);
 const props = defineProps({
   data: {
     type: Object,
@@ -11,83 +13,79 @@ const content = computed(() => {
 });
 </script>
 <template>
-  <div>
-    <div class="row pt-11 pb-10 lg:pt-[8rem]">
-      <div class="col-lg-6 relative mb-10 lg:mb-0">
-        <div class="aspect-w-16 aspect-h-12 lg:aspect-h-8">
-          <img
-            :src="content.src"
-            class="h-full w-full object-cover object-center"
-            alt="productDesign"
-          />
-        </div>
-        <div class="card-body p-0 pt-2">
-          <div class="mb-1 flex items-center justify-between">
-            <div class="flex items-center">
-              <h3 class="text-m font-700">{{ content.name }}</h3>
-              <i class="bi bi-facebook ml-2.5 text-m"></i>
-            </div>
-            <!-- text -->
-            <div class="textBox flex lg:flex-col lg:justify-between">
-              <p class="lg:text-m lg:text-white">
-                <span class="lg:block">{{ content.firstDate[0] }}</span>
-                <span class="lg:block">{{ content.firstDate[1] }}</span>
-                <span class="lg:hidden"> — </span>
-                <span class="hidden lg:block"> | </span>
-                <span class="lg:block">{{ content.lastDate[0] }}</span>
-                <span class="lg:block">{{ content.lastDate[1] }}</span>
-              </p>
-            </div>
-          </div>
-          <p class="card-text flex-grow font-300 line-clamp-3">
-            {{ content.text }}
-          </p>
-        </div>
+  <div class="row pt-11 pb-10 lg:pt-[8rem]">
+    <div class="col-lg-6 relative mb-10 lg:mb-0">
+      <div class="aspect-w-16 aspect-h-12 lg:aspect-h-8">
+        <img
+          :src="content.src"
+          class="h-full w-full object-cover object-center"
+          alt="productDesign"
+        />
       </div>
-      <div class="col-lg-6">
-        <div class="row h-full">
-          <!-- 張數 -->
-          <div
-            class="count-item col-md-6 relative mb-8 flex-grow lg:mb-0 lg:pt-[12%]"
+      <div class="card-body p-0 pt-2">
+        <div class="mb-1 flex items-center justify-between">
+          <div class="flex items-center">
+            <h3 class="text-m font-700">{{ content.name }}</h3>
+            <i class="bi bi-facebook ml-2.5 text-m"></i>
+          </div>
+          <!-- text -->
+          <div class="textBox flex lg:flex-col lg:justify-between">
+            <p class="lg:text-m lg:text-white">
+              <span class="lg:block">{{ content.firstDate[0] }}</span>
+              <span class="lg:block">{{ content.firstDate[1] }}</span>
+              <span class="lg:hidden"> — </span>
+              <span class="hidden lg:block"> | </span>
+              <span class="lg:block">{{ content.lastDate[0] }}</span>
+              <span class="lg:block">{{ content.lastDate[1] }}</span>
+            </p>
+          </div>
+        </div>
+        <p class="card-text flex-grow font-300 line-clamp-3">
+          {{ content.text }}
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row h-full">
+        <!-- 張數 -->
+        <div
+          class="count-item col-md-6 relative mb-8 flex-grow lg:mb-0 lg:pt-[12%]"
+        >
+          <p class="mb-6 flex items-center justify-center">
+            <span class="material-icons cursor-pointer select-none"
+              >remove</span
+            >
+            <span class="mx-10 text-4xl font-700">01</span>
+            <span class="material-icons cursor-pointer select-none">add</span>
+          </p>
+          <p class="text-center font-300">張</p>
+        </div>
+        <!-- 價錢 -->
+        <div class="count-item col-md-6 mb-8 flex-grow lg:mb-0 lg:pt-[12%]">
+          <p class="mb-6 flex items-center justify-center text-secondary">
+            <span class="mx-2 text-4xl font-700">NT${{ content.price }}</span>
+          </p>
+          <p class="mb-1 text-center font-300">票種</p>
+          <ul class="ticketType flex items-center justify-center text-center">
+            <li class="ticketType-item mr-1 px-4 py-2 xl:mr-3">學生</li>
+            <li class="ticketType-item active mr-1 px-4 py-2 xl:mr-3">全票</li>
+            <li class="ticketType-item px-4 py-2">愛心</li>
+          </ul>
+        </div>
+        <!-- button -->
+        <div class="flex lg:mb-8 lg:self-end">
+          <button
+            type="button"
+            class="btn-outline btn-lg btn mr-4 w-1/2 border-primary text-base text-primary hover:bg-primary hover:text-white md:px-12"
           >
-            <p class="mb-6 flex items-center justify-center">
-              <span class="material-icons cursor-pointer select-none"
-                >remove</span
-              >
-              <span class="mx-10 text-4xl font-700">01</span>
-              <span class="material-icons cursor-pointer select-none">add</span>
-            </p>
-            <p class="text-center font-300">張</p>
-          </div>
-          <!-- 價錢 -->
-          <div class="count-item col-md-6 mb-8 flex-grow lg:mb-0 lg:pt-[12%]">
-            <p class="mb-6 flex items-center justify-center text-secondary">
-              <span class="mx-2 text-4xl font-700">NT${{ content.price }}</span>
-            </p>
-            <p class="mb-1 text-center font-300">票種</p>
-            <ul class="ticketType flex items-center justify-center text-center">
-              <li class="ticketType-item mr-1 px-4 py-2 xl:mr-3">學生</li>
-              <li class="ticketType-item active mr-1 px-4 py-2 xl:mr-3">
-                全票
-              </li>
-              <li class="ticketType-item px-4 py-2">愛心</li>
-            </ul>
-          </div>
-          <!-- button -->
-          <div class="flex lg:mb-8 lg:self-end">
-            <button
-              type="button"
-              class="btn-outline btn-lg btn mr-4 w-1/2 border-primary text-base text-primary hover:bg-primary hover:text-white md:px-12"
-            >
-              收藏展覽
-            </button>
-            <button
-              type="button"
-              class="btn-secondary btn-lg btn w-1/2 text-base text-white md:px-12"
-            >
-              購買票券
-            </button>
-          </div>
+            收藏展覽
+          </button>
+          <button
+            type="button"
+            class="btn-secondary btn-lg btn w-1/2 text-base text-white md:px-12"
+          >
+            購買票券
+          </button>
         </div>
       </div>
     </div>

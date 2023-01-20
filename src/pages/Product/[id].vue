@@ -21,6 +21,7 @@ const content = computed(() => {
     <div class="container">
       <div class="aa">{{ route.params.id }}</div>
       <DetailTicket :data="content" />
+      <DetailIntroduce :data="content" />
     </div>
   </main>
 </template>
