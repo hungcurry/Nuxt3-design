@@ -7,10 +7,23 @@ const props = defineProps({
     default: () => ({}),
   },
 });
+// reduce重組資料
+const reduceObj = detailObj.reduce(function (prev, next) {
+  const { id, title, type, description, src } = next;
+  return {
+    ...prev,
+    [id]: {
+      title,
+      type,
+      description: [description[0], description[1]],
+      src: [src[0], src[1]],
+    },
+  };
+}, {});
 // props 解構出來的值要用value
 const { id } = toRefs(props.data);
 const content = computed(() => {
-  return detailObj[id.value];
+  return reduceObj[id.value];
 });
 </script>
 <template>

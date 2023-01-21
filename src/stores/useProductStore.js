@@ -1,12 +1,12 @@
-import product1 from '@/assets/images/product-1.jpg';
-import product2 from '@/assets/images/product-2.jpg';
-import product3 from '@/assets/images/product-3.jpg';
-import product4 from '@/assets/images/product-4.jpg';
-import product5 from '@/assets/images/product-5.jpg';
-import product6 from '@/assets/images/product-6.jpg';
-import product7 from '@/assets/images/product-7.jpg';
-import product8 from '@/assets/images/product-8.jpg';
-import product9 from '@/assets/images/product-9.jpg';
+import product1 from '@/assets/images/Product/product-1.jpg';
+import product2 from '@/assets/images/Product/product-2.jpg';
+import product3 from '@/assets/images/Product/product-3.jpg';
+import product4 from '@/assets/images/Product/product-4.jpg';
+import product5 from '@/assets/images/Product/product-5.jpg';
+import product6 from '@/assets/images/Product/product-6.jpg';
+import product7 from '@/assets/images/Product/product-7.jpg';
+import product8 from '@/assets/images/Product/product-8.jpg';
+import product9 from '@/assets/images/Product/product-9.jpg';
 export const ProductStore = defineStore('product', () => {
   const listObj = reactive({
     '/': [
