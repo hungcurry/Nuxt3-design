@@ -2,9 +2,9 @@
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
 const { detailObj } = useDetailStore();
 const props = defineProps({
-  data: {
-    type: Object,
-    default: () => ({}),
+  id: {
+    type: Number,
+    default: undefined,
   },
 });
 // reduce重組資料
@@ -20,8 +20,7 @@ const reduceObj = detailObj.reduce(function (prev, next) {
     },
   };
 }, {});
-// props 解構出來的值要用value
-const { id } = toRefs(props.data);
+const { id } = toRefs(props);
 const content = computed(() => {
   return reduceObj[id.value];
 });

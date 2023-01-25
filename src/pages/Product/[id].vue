@@ -1,34 +1,82 @@
 <script setup>
+import SlotBack from '@/components/Slots/SlotBack.vue';
 // 產品資料
 const { listObj } = useProductStore();
+const router = useRouter();
 const route = useRoute();
 const routeStr = route.query.router;
-const rooterId = route.params.id;
+const routeId = Number(route.params.id);
 
-// 重組格式
-const contentData = computed(() => {
-  return listObj[routeStr];
+const isError = ref(false);
+let content = reactive({});
+let cleanTimer = null;
+// ===================
+// 重組 取得id route
+// ===================
+// route
+const keysAry = Object.keys(listObj);
+const isRoute = keysAry.includes(routeStr);
+// id
+const valuesAry = Object.values(listObj);
+const Ary = [];
+valuesAry.forEach(item => {
+  Ary.push(...item);
 });
-const data = contentData.value.filter(item => {
-  return item.id === Number(rooterId);
+const idAry = Ary.map(item => {
+  return item.id;
 });
-const content = computed(() => {
-  return data[0];
+const isId = idAry.includes(routeId);
+
+// console.log(`routeStr:`, routeStr);
+// console.log(`routeId:`, routeId);
+// console.log('isRoute', isRoute);
+// console.log('isId', isId);
+// ===================
+// 取得正確資料
+// ===================
+if (isRoute && isId) {
+  const contentData = computed(() => {
+    return listObj[routeStr];
+  });
+  const data = contentData.value.filter(item => {
+    return item.id === routeId;
+  });
+  if (data.length !== 0) {
+    content = computed(() => {
+      return data[0];
+    });
+  }
+} else {
+  isError.value = true;
+  TimeOver();
+}
+
+// ---跳轉----
+function TimeOver() {
+  if (process.client) {
+    cleanTimer = setTimeout(() => {
+      router.push({ path: '/' });
+    }, 3000);
+  }
+}
+// 離開頁面銷毀
+onUnmounted(() => {
+  clearTimeout(cleanTimer);
 });
 </script>
 <template>
   <main>
     <div class="container">
-      <div class="aa">{{ route.params.id }}</div>
-      <DetailTicket :data="content" />
-      <DetailIntroduce :data="content" />
+      <div v-if="!isError">
+        <DetailTicket v-bind="content" />
+        <DetailIntroduce :id="routeId" />
+      </div>
+      <!-- 錯誤處理 -->
+      <div v-else-if="isError">
+        <ErrorMessage />
+        <slot-back>自動轉址 首頁中...</slot-back>
+      </div>
     </div>
   </main>
 </template>
-<style lang="scss" scoped>
-.aa {
-  color: blue;
-  font-size: 60px;
-  text-align: center;
-}
-</style>
+<style lang="scss" scoped></style>
