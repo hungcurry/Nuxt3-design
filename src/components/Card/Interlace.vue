@@ -27,13 +27,19 @@ const content = computed(() => {
             :class="{ 'flex-row-reverse text-primary': (idx + 1) % 2 === 0 }"
           >
             <div class="col-lg-5 imgBox relative lg:order-2">
-              <a
-                href="javascript:;"
-                class="linkArea z-20"
-                :data-id="item.id"
-                @click="clickDetail(item.id)"
-              ></a>
-              <img :src="item.src" class="mb-4 lg:mb-0" alt="productDesign" />
+              <div class="aspect-w-9 aspect-h-6">
+                <a
+                  href="javascript:;"
+                  class="linkArea z-20"
+                  :data-id="item.id"
+                  @click="clickDetail(item.id)"
+                ></a>
+                <img
+                  :src="item.src"
+                  class="mb-4 object-cover lg:mb-0"
+                  alt="productImage"
+                />
+              </div>
             </div>
             <div class="col-lg-1 lg:order-3">
               <div
@@ -81,7 +87,6 @@ const content = computed(() => {
   }
   .imgBox {
     img {
-      position: relative;
       z-index: 10;
     }
     &::before {
@@ -100,10 +105,6 @@ const content = computed(() => {
 }
 .product-item:nth-child(2n) {
   .imgBox {
-    img {
-      position: relative;
-      z-index: 10;
-    }
     &::before {
       @include pad(992) {
         border: 5px solid var.$primary;

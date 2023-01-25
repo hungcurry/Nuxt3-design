@@ -5,11 +5,11 @@ const listArr = reactive([
   { name: '設計', path: '/Design', isDisabled: false },
   { name: '美食', path: '/Food', isDisabled: false },
   { name: '電影', path: '/Movie', isDisabled: false },
-  { name: '戲劇', path: '/Drama', isDisabled: true },
-  { name: '旅遊', path: '/Travel', isDisabled: true },
-  { name: '藝術', path: '/Art', isDisabled: true },
-  { name: '親子', path: '/Child', isDisabled: true },
-  { name: '期間限定', path: '/Limited', isDisabled: true },
+  { name: '戲劇', path: '/Disabled/Drama', isDisabled: true },
+  { name: '旅遊', path: '/Disabled/Travel', isDisabled: true },
+  { name: '藝術', path: '/Disabled/Art', isDisabled: true },
+  { name: '親子', path: '/Disabled/Child', isDisabled: true },
+  { name: '期間限定', path: '/Disabled/Limited', isDisabled: true },
 ]);
 </script>
 <template>
