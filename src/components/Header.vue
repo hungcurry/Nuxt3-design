@@ -2,6 +2,7 @@
 const isOpen = ref(false);
 const elHeight = ref(34);
 const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
+const { OpenCart, OpenSign } = useModalStore();
 const domH = computed(() => {
   return isOpen.value === true
     ? `${listArr.length * elHeight.value + 16}px`
@@ -22,7 +23,11 @@ const clickMe = () => {
       <h1 class="logo" title="EXHIBINECTION">
         <a href="/" class="block text-lg text-primary">EXHIBINECTION</a>
       </h1>
-      <a href="javascript:;" class="block leading-none lg:order-last">
+      <a
+        href="javascript:;"
+        class="block leading-none lg:order-last"
+        @click="OpenCart"
+      >
         <span class="material-icons text-black">shopping_cart</span>
         <span
           class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 rounded-full border-0 bg-secondary font-700 text-white"
@@ -35,7 +40,12 @@ const clickMe = () => {
         class="navbar-collapse flex-grow basis-full items-center lg:flex-grow-0 lg:basis-auto"
       >
         <ul class="navbar-nav mt-4 flex list-none flex-col lg:mt-0 lg:flex-row">
-          <li class="lg:mr-8" v-for="item in listArr" :key="item.name">
+          <li
+            class="lg:mr-8"
+            v-for="item in listArr"
+            :key="item.name"
+            @click="OpenSign"
+          >
             <a
               href="javascript:;"
               class="block p-[0.5rem] text-center text-muted"
