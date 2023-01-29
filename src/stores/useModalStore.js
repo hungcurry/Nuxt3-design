@@ -1,4 +1,4 @@
-export const ModalStore = defineStore('cart', () => {
+export const ModalStore = defineStore('modal', () => {
   let body = ref(null);
   const isModal = ref(false);
   const isCart = ref(false);

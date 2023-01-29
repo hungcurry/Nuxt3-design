@@ -1,6 +1,7 @@
 <script setup>
 const isOpen = ref(false);
 const elHeight = ref(34);
+const { cartAry } = useCartStore();
 const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
 const { OpenCart, OpenSign } = useModalStore();
 const domH = computed(() => {
@@ -31,7 +32,7 @@ const clickMe = () => {
         <span class="material-icons text-black">shopping_cart</span>
         <span
           class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 rounded-full border-0 bg-secondary font-700 text-white"
-          >3
+          >{{ cartAry.length }}
         </span>
       </a>
       <!-- collapse -->

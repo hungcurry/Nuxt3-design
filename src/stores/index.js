@@ -10,6 +10,8 @@ import { SwiperStore } from './useSwiperStore.js';
 import { ProductStore } from './useProductStore.js';
 import { DetailStore } from './useProductDetailStore.js';
 // Cart
+import { CartStore } from './useCartStore.js';
+// modal
 import { ModalStore } from './useModalStore.js';
 
 export const useCountStore = CountStore;
@@ -18,4 +20,5 @@ export const usePositionStore = PositionStore;
 export const useSwiperStore = SwiperStore;
 export const useProductStore = ProductStore;
 export const useDetailStore = DetailStore;
+export const useCartStore = CartStore;
 export const useModalStore = ModalStore;
