@@ -35,7 +35,7 @@ const { total } = storeToRefs(CartStore);
         }}</span>
       </div>
       <a
-        href="./checkoutA"
+        href="./Process/checkoutA"
         class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white"
         >前往結帳</a
       >

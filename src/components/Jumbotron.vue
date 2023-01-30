@@ -7,7 +7,6 @@ watch(
     path.value = newV;
   },
 );
-
 onMounted(() => {
   path.value = route.path;
 });

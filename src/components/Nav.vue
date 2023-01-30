@@ -11,9 +11,15 @@ const listArr = reactive([
   { name: '親子', path: '/Disabled/Child', isDisabled: true },
   { name: '期間限定', path: '/Disabled/Limited', isDisabled: true },
 ]);
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
+console.log(routeStr);
 </script>
 <template>
-  <div class="nav-scroller border-b border-gray-600 bg-white">
+  <div
+    class="nav-scroller border-b border-gray-600 bg-white"
+    :class="routeStr !== 'process' ? 'block' : 'hidden'"
+  >
     <nav class="subNav md:px-6">
       <NuxtLink
         v-for="item in listArr"
