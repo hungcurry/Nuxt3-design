@@ -5,7 +5,7 @@ const routeStr = route.href.slice(9);
 <template>
   <div class="row">
     <div class="col-lg-8">
-      <div class="row timeline relative py-5 md:py-7">
+      <div class="row timeline relative py-5 md:py-7 lg:mx-0">
         <div
           class="col-3 timeline-item"
           :class="{ active: routeStr === 'checkoutA' }"

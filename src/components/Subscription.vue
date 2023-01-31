@@ -1,6 +1,12 @@
-<script setup></script>
+<script setup>
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
+</script>
 <template>
-  <section class="subscription bg-cover bg-center">
+  <section
+    class="subscription bg-cover bg-center"
+    :class="routeStr !== 'process' ? 'block' : 'hidden'"
+  >
     <div class="container h-full text-white">
       <div class="row flex h-full flex-col justify-end pb-9">
         <div class="col-lg-5">

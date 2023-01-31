@@ -13,7 +13,6 @@ const listArr = reactive([
 ]);
 const route = useRoute();
 const routeStr = route.href.slice(1, 8).toLowerCase();
-console.log(routeStr);
 </script>
 <template>
   <div

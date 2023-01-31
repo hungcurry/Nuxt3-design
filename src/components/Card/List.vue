@@ -7,7 +7,7 @@ const { cartAry, patchCartItem } = CartStore;
     <li
       v-for="list in cartAry"
       :key="list.id"
-      class="cardList-item align-between relative mb-2 flex rounded-lg bg-white px-4 pt-9 pb-4 text-black lg:mb-3 lg:px-8 lg:pt-7 lg:pb-6"
+      class="cardList-item align-between flex relative mb-2 rounded-lg bg-white px-4 pt-9 pb-4 text-black lg:mb-3 lg:px-8 lg:pt-7 lg:pb-6"
     >
       <div class="close lineHeight-none absolute left-1 top-1">
         <span

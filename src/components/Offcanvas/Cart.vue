@@ -1,4 +1,6 @@
 <script setup>
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
 const ModalStore = useModalStore();
 const CartStore = useCartStore();
 const { CloseCart } = ModalStore;
@@ -37,6 +39,7 @@ const { total } = storeToRefs(CartStore);
       <a
         href="./Process/checkoutA"
         class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white"
+        :class="routeStr === 'process' ? 'disabled' : ''"
         >前往結帳</a
       >
     </div>

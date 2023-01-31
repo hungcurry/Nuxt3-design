@@ -6,9 +6,14 @@ import SlotTitle from '@/components/Slots/SlotTitle.vue';
 const modules = ref([Autoplay, Pagination]);
 // swiper圖片
 const { listArr } = useSwiperStore();
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
 </script>
 <template>
-  <section class="recommend">
+  <section
+    class="recommend"
+    :class="routeStr !== 'process' ? 'block' : 'hidden'"
+  >
     <div class="container">
       <slot-title>猜你也喜歡...</slot-title>
       <div class="row mb-6 md:mb-12">
