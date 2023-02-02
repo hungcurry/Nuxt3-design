@@ -78,6 +78,7 @@ export const CartStore = defineStore('cart', () => {
   const total = ref(0);
 
   const patchCartItem = (id, str) => {
+    // 先取得原本產品數量
     cartAry.forEach(item => {
       if (item.id === id) {
         numPatch.value = item.quantity;
@@ -110,10 +111,23 @@ export const CartStore = defineStore('cart', () => {
     });
   };
 
+  // 刪除資料
+  const deleteItem = id => {
+    const index = cartAry.findIndex(item => {
+      return item.orderId === id;
+    });
+    cartAry.splice(index, 1);
+    // 總金額
+    total.value = 0;
+    cartAry.forEach(list => {
+      total.value += list.price * list.quantity;
+    });
+  };
+
   onMounted(() => {
     cartAry.forEach(list => {
       total.value += list.price * list.quantity;
     });
   });
-  return { cartAry, patchCartItem, total };
+  return { cartAry, patchCartItem, total, deleteItem };
 });

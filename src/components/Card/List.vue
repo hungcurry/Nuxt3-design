@@ -1,18 +1,22 @@
 <script setup>
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
 const CartStore = useCartStore();
-const { cartAry, patchCartItem } = CartStore;
+const { cartAry, patchCartItem, deleteItem } = CartStore;
 </script>
 <template>
   <div>
     <li
       v-for="list in cartAry"
       :key="list.id"
-      class="cardList-item align-between flex relative mb-2 rounded-lg bg-white px-4 pt-9 pb-4 text-black lg:mb-3 lg:px-8 lg:pt-7 lg:pb-6"
+      class="cardList-item align-between relative mb-2 flex rounded-lg bg-white px-4 pt-9 pb-4 text-black lg:mb-3 lg:px-8 lg:pt-7 lg:pb-6"
     >
       <div class="close lineHeight-none absolute left-1 top-1">
         <span
           class="material-icons block cursor-pointer"
+          :class="routeStr === 'process' ? 'hidden' : 'block'"
           :data-orderId="list.orderId"
+          @click="deleteItem(list.orderId)"
           >close</span
         >
       </div>
@@ -40,17 +44,23 @@ const { cartAry, patchCartItem } = CartStore;
       <div class="flex flex-col items-center justify-center lg:flex-row">
         <div class="lineHeight-none mb-1 lg:order-3 lg:mb-0">
           <span
-            class="material-icons block cursor-pointer"
+            class="material-icons block cursor-pointer select-none"
+            :class="routeStr === 'process' ? 'hidden' : 'block'"
             :data-id="list.id"
             data-action="add"
             @click="patchCartItem(list.id, 'add')"
             >add</span
           >
         </div>
-        <div class="px-1 text-m font-700 md:px-3">{{ list.quantity }}</div>
+        <div
+          class="w-[3rem] select-none px-1 text-center text-m font-700 md:px-3 lg:w-[4.6rem]"
+        >
+          {{ list.quantity }}
+        </div>
         <div class="lineHeight-none mt-1 lg:order-first lg:mt-0">
           <span
-            class="material-icons block cursor-pointer"
+            class="material-icons block cursor-pointer select-none"
+            :class="routeStr === 'process' ? 'hidden' : 'block'"
             :data-id="list.id"
             data-action="minus"
             @click="patchCartItem(list.id, 'minus')"

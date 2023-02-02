@@ -3,32 +3,19 @@ import SlotCheckTitle from '@/components/Slots/SlotCheckTitle.vue';
 const CartStore = useCartStore();
 // 總金額
 const { total } = storeToRefs(CartStore);
-
-// ===================
-// ... 優惠碼 ...
-// ===================
-const isCode = ref(true);
-const codeAry = ref(['TG87526', 'TG87530', 'TG87534']);
-const codeMessage = ref('');
-const codePrice = ref(0);
-const codeInput = ref(null);
-const checkCode = ref('測試碼:TG87526');
-
-const changeHandler = () => {
-  const isNum = codeAry.value.includes(checkCode.value);
-  if (isNum) {
-    isCode.value = false;
-    codePrice.value = 2000;
-    codeMessage.value = '優惠碼已生效';
-  } else {
-    isCode.value = true;
-    codePrice.value = 0;
-    codeMessage.value = '無效密碼';
-  }
-};
-onMounted(() => {
-  codeInput.value.addEventListener('input', changeHandler);
-});
+// form
+const userStore = useUserStore();
+const { changeHandler, orderCheck } = userStore;
+const {
+  isCode,
+  codeMessage,
+  codePrice,
+  // --------form-----------
+  checkEmail,
+  checkName,
+  checkPhone,
+  checkCode,
+} = storeToRefs(userStore);
 </script>
 <template>
   <main>
@@ -43,6 +30,7 @@ onMounted(() => {
                 >Email</label
               >
               <input
+                v-model.trim="checkEmail"
                 type="email"
                 name="dataEmail"
                 id="checkEmail"
@@ -56,6 +44,7 @@ onMounted(() => {
                 >姓名</label
               >
               <input
+                v-model.trim="checkName"
                 type="text"
                 name="dataName"
                 id="checkName"
@@ -69,6 +58,7 @@ onMounted(() => {
                 >聯絡電話</label
               >
               <input
+                v-model.trim="checkPhone"
                 type="tel"
                 name="dataPhone"
                 id="checkPhone"
@@ -82,8 +72,8 @@ onMounted(() => {
                 >優惠碼</label
               >
               <input
+                @input="changeHandler($event)"
                 v-model.trim="checkCode"
-                ref="codeInput"
                 type="text"
                 id="checkCode"
                 class="form-control w-full rounded-lg border-gray-300 text-base text-primary focus:border-primary focus:ring-primary"
@@ -111,7 +101,7 @@ onMounted(() => {
             <!-- 折扣 -->
             <div
               class="mb-2 flex items-center justify-between"
-              :class="{ hidden: isCode }"
+              :class="{ hidden: !isCode }"
             >
               <span class="font-500">折扣:</span>
               <div class="font-300">
@@ -131,7 +121,8 @@ onMounted(() => {
             </div>
           </div>
           <a
-            href="./checkoutC"
+            @click="orderCheck"
+            href="javascript:;"
             class="w-100 btn-secondary btn-lg btn hidden h-auto py-3 text-base text-white lg:block"
             >下一步</a
           >
@@ -148,7 +139,8 @@ onMounted(() => {
             </div>
             <div class="col-6">
               <a
-                href="./checkoutC"
+                @click="orderCheck"
+                href="javascript:;"
                 class="btn-secondary btn-lg btn h-auto w-full py-2 align-middle text-base lg:hidden"
                 >下一步</a
               >

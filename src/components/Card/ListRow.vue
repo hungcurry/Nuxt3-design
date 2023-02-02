@@ -2,7 +2,7 @@
 const route = useRoute();
 const routeStr = route.href.slice(9, route.href.length);
 const CartStore = useCartStore();
-const { cartAry, patchCartItem } = CartStore;
+const { cartAry, patchCartItem, deleteItem } = CartStore;
 </script>
 <template>
   <ul
@@ -16,12 +16,15 @@ const { cartAry, patchCartItem } = CartStore;
           alt="product"
         />
       </div>
+      <!-- mobile-price -->
       <div class="col-6 col-lg-3">
         <h3 class="mb-1 flex items-center justify-between text-base font-700">
           <span class="whitespace-nowrap">{{ list.name }}</span>
           <span
             class="material-icons cursor-pointer lg:hidden"
+            :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
             :data-orderId="list.orderId"
+            @click="deleteItem(list.orderId)"
             >close</span
           >
         </h3>
@@ -46,7 +49,7 @@ const { cartAry, patchCartItem } = CartStore;
       >
         <div
           class="w-[11rem] text-m font-700"
-          :class="routeStr === 'checkoutB' ? 'lg:mr-12' : ''"
+          :class="routeStr !== 'checkoutA' ? 'lg:mr-12' : ''"
         >
           NT${{ useThousands(list.price * list.quantity) }}
         </div>
@@ -81,6 +84,7 @@ const { cartAry, patchCartItem } = CartStore;
           class="material-icons cursor-pointer lg:mr-3"
           :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
           :data-orderId="list.orderId"
+          @click="deleteItem(list.orderId)"
           >close</span
         >
       </div>

@@ -1,5 +1,6 @@
 <script setup>
 import SlotCheckTitle from '@/components/Slots/SlotCheckTitle.vue';
+const { nextCheck } = useUserStore();
 const CartStore = useCartStore();
 // 總金額
 const { total } = storeToRefs(CartStore);
@@ -27,7 +28,8 @@ const { total } = storeToRefs(CartStore);
             </div>
           </div>
           <a
-            href="./checkoutB"
+            @click="nextCheck"
+            href="javascript:;"
             class="w-100 btn-secondary btn-lg btn hidden h-auto py-3 text-base text-white lg:block"
             >下一步</a
           >
@@ -56,7 +58,8 @@ const { total } = storeToRefs(CartStore);
                 </div>
               </div>
               <a
-                href="./checkoutB"
+                @click="nextCheck"
+                href="javascript:;"
                 class="btn-secondary btn-lg btn h-auto w-full py-2 align-middle text-base lg:hidden"
                 >下一步</a
               >

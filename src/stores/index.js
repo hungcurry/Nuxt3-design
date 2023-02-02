@@ -13,6 +13,8 @@ import { DetailStore } from './useProductDetailStore.js';
 import { CartStore } from './useCartStore.js';
 // modal
 import { ModalStore } from './useModalStore.js';
+// user
+import { UserStore } from './useUserStore.js';
 
 export const useCountStore = CountStore;
 export const useFetchStore = FetchStore;
@@ -22,3 +24,4 @@ export const useProductStore = ProductStore;
 export const useDetailStore = DetailStore;
 export const useCartStore = CartStore;
 export const useModalStore = ModalStore;
+export const useUserStore = UserStore;
