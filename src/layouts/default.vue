@@ -7,7 +7,7 @@
     <Recommend />
     <Subscription />
     <Footer />
-    <OffcanvasCart />
+    <OffcanvasRight />
     <ModalDialog />
     <ModalBackdrop />
   </div>

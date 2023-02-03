@@ -37,7 +37,7 @@ const { total } = storeToRefs(CartStore);
         }}</span>
       </div>
       <a
-        href="./Process/checkoutA"
+        href="/Process/checkoutA"
         class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white"
         :class="routeStr === 'process' ? 'disabled' : ''"
         >前往結帳</a
@@ -50,7 +50,6 @@ const { total } = storeToRefs(CartStore);
   bottom: 0;
   display: flex;
   flex-direction: column;
-  max-width: 100%;
   position: fixed;
   right: -800px;
   top: 6rem;

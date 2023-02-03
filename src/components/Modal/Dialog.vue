@@ -24,10 +24,12 @@ const { isSign } = storeToRefs(ModalStore);
   top: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.6s;
+  visibility: hidden;
   z-index: 999;
 }
 .active {
   opacity: 0.8;
   pointer-events: auto;
+  visibility: visible;
 }
 </style>

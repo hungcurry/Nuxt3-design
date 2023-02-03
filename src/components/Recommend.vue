@@ -2,12 +2,12 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination } from 'swiper';
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
+const route = useRoute();
+const routeStr = route.href.slice(1, 8).toLowerCase();
 // modules 這個要自己設定
 const modules = ref([Autoplay, Pagination]);
 // swiper圖片
 const { listArr } = useSwiperStore();
-const route = useRoute();
-const routeStr = route.href.slice(1, 8).toLowerCase();
 </script>
 <template>
   <section

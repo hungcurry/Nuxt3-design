@@ -16,7 +16,7 @@ const clickMe = () => {
 <template>
   <header class="header border-b border-black bg-white">
     <div
-      class="flex container relative flex-wrap items-center justify-between py-4 lg:flex-nowrap lg:justify-end lg:py-6"
+      class="container relative flex flex-wrap items-center justify-between py-4 lg:flex-nowrap lg:justify-end lg:py-6"
     >
       <button type="button" @click="clickMe" class="p-1 leading-none lg:hidden">
         <span class="material-icons">reorder</span>
@@ -40,7 +40,7 @@ const clickMe = () => {
         :style="{ height: domH }"
         class="navbar-collapse flex-grow basis-full items-center lg:flex-grow-0 lg:basis-auto"
       >
-        <ul class="navbar-nav flex mt-4 list-none flex-col lg:mt-0 lg:flex-row">
+        <ul class="navbar-nav mt-4 flex list-none flex-col lg:mt-0 lg:flex-row">
           <li
             class="lg:mr-8"
             v-for="item in listArr"
