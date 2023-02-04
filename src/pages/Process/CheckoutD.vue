@@ -12,7 +12,7 @@ onMounted(() => {
 });
 </script>
 <template>
-  <main>
+  <main class="main">
     <div class="container">
       <div class="row pt-[4.2rem] lg:pt-[10.2rem]">
         <div class="col-lg-6 mx-auto">

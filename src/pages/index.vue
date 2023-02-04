@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <main>
+  <main class="main">
     <CardPopular />
     <Review />
   </main>

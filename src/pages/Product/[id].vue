@@ -65,7 +65,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <main>
+  <main class="main">
     <div class="container">
       <div v-if="!isError">
         <DetailTicket v-bind="content" />

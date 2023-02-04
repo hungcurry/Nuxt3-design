@@ -51,6 +51,14 @@ export const UserStore = defineStore('user', () => {
     router.push({ path: `./checkoutB` });
   };
   const orderCheck = () => {
+    if (
+      checkEmail.value === '' ||
+      checkName.value === '' ||
+      checkPhone.value === ''
+    ) {
+      window.alert(`請輸入 完整資料`);
+      return;
+    }
     router.push({ path: `./checkoutC` });
   };
   const createOrder = () => {

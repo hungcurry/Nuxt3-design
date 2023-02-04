@@ -39,4 +39,16 @@ useHead({
 * {
   // outline: 1px solid red;
 }
+/* stylelint-disable-next-line selector-max-id */
+#id > div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
 </style>

@@ -18,7 +18,7 @@ const {
 } = storeToRefs(userStore);
 </script>
 <template>
-  <main>
+  <main class="main">
     <div class="container">
       <TimeLine />
       <div class="row">

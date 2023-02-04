@@ -6,7 +6,7 @@ const listAry = reactive([
 ]);
 </script>
 <template>
-  <footer class="bg-white">
+  <footer class="Footer bg-white">
     <div class="container py-3 lg:flex lg:justify-between lg:py-6">
       <div class="md:flex md:items-center">
         <h5 class="text-lg font-400 text-black">
