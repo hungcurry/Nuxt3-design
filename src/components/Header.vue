@@ -2,11 +2,14 @@
 const isOpen = ref(false);
 const elHeight = ref(34);
 const { cartAry } = useCartStore();
-const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
-const { OpenCart, OpenSign } = useModalStore();
+const { OpenCart, OpenSignIn, OpenSignUp } = useModalStore();
+const listAry = reactive([
+  { name: 'Sign in', method: OpenSignIn },
+  { name: 'Sign up', method: OpenSignUp },
+]);
 const domH = computed(() => {
   return isOpen.value === true
-    ? `${listArr.length * elHeight.value + 16}px`
+    ? `${listAry.length * elHeight.value + 16}px`
     : 0 + 'px';
 });
 const clickMe = () => {
@@ -43,9 +46,9 @@ const clickMe = () => {
         <ul class="navbar-nav mt-4 flex list-none flex-col lg:mt-0 lg:flex-row">
           <li
             class="lg:mr-8"
-            v-for="item in listArr"
+            v-for="item in listAry"
             :key="item.name"
-            @click="OpenSign"
+            @click="item.method"
           >
             <a
               href="javascript:;"

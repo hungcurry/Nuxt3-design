@@ -1,5 +1,9 @@
 <script setup>
-const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
+const { OpenSignIn, OpenSignUp } = useModalStore();
+const listAry = reactive([
+  { name: 'Sign in', method: OpenSignIn },
+  { name: 'Sign up', method: OpenSignUp },
+]);
 </script>
 <template>
   <footer class="bg-white">
@@ -14,7 +18,12 @@ const listArr = reactive([{ name: 'Sign in' }, { name: 'Sign up' }]);
         class="hidden flex-grow basis-full items-center lg:flex lg:flex-grow-0 lg:basis-auto"
       >
         <ul class="navbar-nav mt-4 flex list-none flex-col lg:mt-0 lg:flex-row">
-          <li class="lg:mr-8" v-for="item in listArr" :key="item.name">
+          <li
+            class="lg:mr-8"
+            v-for="item in listAry"
+            :key="item.name"
+            @click="item.method"
+          >
             <a
               href="javascript:;"
               class="block p-[0.5rem] text-center text-muted"

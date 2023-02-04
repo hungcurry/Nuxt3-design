@@ -15,6 +15,7 @@ import { CartStore } from './useCartStore.js';
 import { ModalStore } from './useModalStore.js';
 // user
 import { UserStore } from './useUserStore.js';
+import { SignStore } from './useSignStore.js';
 
 export const useCountStore = CountStore;
 export const useFetchStore = FetchStore;
@@ -25,3 +26,4 @@ export const useDetailStore = DetailStore;
 export const useCartStore = CartStore;
 export const useModalStore = ModalStore;
 export const useUserStore = UserStore;
+export const useSignStore = SignStore;

@@ -2,8 +2,8 @@ export const ModalStore = defineStore('modal', () => {
   let body = ref(null);
   const isModal = ref(false);
   const isCart = ref(false);
-  const isSign = ref(false);
-
+  const isSignIn = ref(false);
+  const isSignUp = ref(false);
   // Cart
   const OpenCart = () => {
     isCart.value = !isCart.value;
@@ -14,14 +14,30 @@ export const ModalStore = defineStore('modal', () => {
     CloseModal();
   };
 
-  // Sign
-  const OpenSign = () => {
-    isSign.value = !isSign.value;
+  // Sign in
+  const OpenSignIn = () => {
+    isSignIn.value = !isSignIn.value;
     OpenModal();
   };
-  const CloseSign = () => {
-    isSign.value = !isSign.value;
+  const CloseSignIn = () => {
+    isSignIn.value = !isSignIn.value;
     CloseModal();
+  };
+
+  // Sign Up
+  const OpenSignUp = () => {
+    isSignUp.value = !isSignUp.value;
+    OpenModal();
+  };
+  const CloseSignUp = () => {
+    isSignUp.value = !isSignUp.value;
+    CloseModal();
+  };
+
+  // change
+  const changeSign = () => {
+    isSignIn.value = !isSignIn.value;
+    isSignUp.value = !isSignUp.value;
   };
 
   // Modal
@@ -32,7 +48,8 @@ export const ModalStore = defineStore('modal', () => {
   const CloseModal = () => {
     isModal.value = !isModal.value;
     isCart.value = false;
-    isSign.value = false;
+    isSignIn.value = false;
+    isSignUp.value = false;
     body.classList.remove('active');
   };
 
@@ -43,11 +60,16 @@ export const ModalStore = defineStore('modal', () => {
   return {
     isModal,
     isCart,
-    isSign,
+    isSignIn,
+    isSignUp,
+    // ------handle--------
     CloseModal,
     OpenCart,
-    OpenSign,
+    OpenSignIn,
+    OpenSignUp,
     CloseCart,
-    CloseSign,
+    CloseSignIn,
+    CloseSignUp,
+    changeSign,
   };
 });

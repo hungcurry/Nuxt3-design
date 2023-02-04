@@ -37,7 +37,6 @@ export const UserStore = defineStore('user', () => {
   // ===================
   // ... 頁面處理 ...
   // ===================
-  let user = {};
   const firstCheck = () => {
     if (cartAry.length === 0) {
       window.alert(`請加入 至少一個 購物車品項！`);
@@ -52,14 +51,6 @@ export const UserStore = defineStore('user', () => {
     router.push({ path: `./checkoutB` });
   };
   const orderCheck = () => {
-    if (
-      checkEmail.value === '' ||
-      checkName.value === '' ||
-      checkPhone.value === ''
-    ) {
-      window.alert(`請輸入 完整資料`);
-      return;
-    }
     router.push({ path: `./checkoutC` });
   };
   const createOrder = () => {
@@ -71,8 +62,7 @@ export const UserStore = defineStore('user', () => {
       window.alert(`請輸入 完整資料`);
       return;
     }
-
-    user = {
+    const user = {
       email: checkEmail.value,
       name: checkName.value,
       tel: checkPhone.value,

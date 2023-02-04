@@ -8,7 +8,8 @@
     <Subscription />
     <Footer />
     <OffcanvasRight />
-    <ModalDialog />
+    <ModalSignIn />
+    <ModalSignUp />
     <ModalBackdrop />
   </div>
 </template>
