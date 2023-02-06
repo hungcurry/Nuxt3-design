@@ -1,12 +1,20 @@
 <script setup>
 const route = useRoute();
-const routeStr = route.href.slice(1, 8).toLowerCase();
 const ModalStore = useModalStore();
 const CartStore = useCartStore();
+const { firstCheck } = useUserStore();
 const { CloseCart } = ModalStore;
 const { isCart } = storeToRefs(ModalStore);
 // 總金額
 const { total } = storeToRefs(CartStore);
+// path
+const path = ref(route.href.slice(1, 8).toLowerCase());
+watch(
+  () => route.path,
+  (newV, oldV) => {
+    path.value = newV.slice(1, 8).toLowerCase();
+  },
+);
 </script>
 <template>
   <div
@@ -37,9 +45,10 @@ const { total } = storeToRefs(CartStore);
         }}</span>
       </div>
       <a
-        href="/Process/checkoutA"
+        @click="firstCheck"
+        href="javascript:;"
         class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white"
-        :class="routeStr === 'process' ? 'disabled' : ''"
+        :class="path === 'process' ? 'disabled' : ''"
         >前往結帳</a
       >
     </div>

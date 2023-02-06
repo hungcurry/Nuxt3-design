@@ -1,14 +1,12 @@
 <script setup>
+const router = useRouter();
 const CartStore = useCartStore();
-const { noReturn } = useNoReturn();
 const { cartAry } = CartStore;
 // 總金額
 const { total } = storeToRefs(CartStore);
 onMounted(() => {
   cartAry.length = 0;
   total.value = 0;
-  // 禁止返回上一頁
-  noReturn();
 });
 </script>
 <template>
@@ -30,17 +28,17 @@ onMounted(() => {
           <div class="mb-lg-0 mb-10">
             <div class="row items-center">
               <div class="col-6">
-                <a
-                  href="/Music"
+                <NuxtLink
+                  to="/Music"
                   class="btn-outline btn-lg btn w-full border-primary text-base text-primary hover:bg-primary hover:text-white md:px-12"
-                  >繼續瀏覽</a
+                  >繼續瀏覽</NuxtLink
                 >
               </div>
               <div class="col-6">
-                <a
-                  href="/"
+                <NuxtLink
+                  to="/"
                   class="btn-secondary btn-lg btn mr-3 w-full text-base text-white md:mr-2 md:px-12"
-                  >回首頁</a
+                  >回首頁</NuxtLink
                 >
               </div>
             </div>

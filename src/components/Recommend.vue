@@ -2,24 +2,31 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination } from 'swiper';
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
-const route = useRoute();
-const routeStr = route.href.slice(1, 8).toLowerCase();
 // modules 這個要自己設定
 const modules = ref([Autoplay, Pagination]);
 // swiper圖片
 const { listArr } = useSwiperStore();
+// path
+const isRender = ref(true);
+const route = useRoute();
+const path = ref(route.href.slice(1, 8).toLowerCase());
+watch(
+  () => route.path,
+  (newV, oldV) => {
+    path.value = newV.slice(1, 8).toLowerCase();
+  },
+);
 </script>
 <template>
-  <section
-    class="recommend"
-    :class="routeStr !== 'process' ? 'block' : 'hidden'"
-  >
+  <section class="recommend" v-if="path === 'process' ? !isRender : isRender">
     <div class="container">
       <slot-title>猜你也喜歡...</slot-title>
       <div class="row mb-6 md:mb-12">
         <div class="col-12 col-lg-11 lg:ml-[8.3333%]">
           <!-- Swiper -->
           <swiper
+            :observer="true"
+            :observeParents="true"
             :slidesPerView="'auto'"
             :initialSlide="0"
             :spaceBetween="15"

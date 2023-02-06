@@ -116,10 +116,10 @@ const {
           <CardListRow />
           <div class="row pt-7 pb-10 lg:pt-3 lg:pb-0">
             <div class="col-6 col-lg-3">
-              <a
-                href="./checkoutB"
+              <NuxtLink
+                to="./checkoutB"
                 class="btn-outline btn-lg btn h-auto w-full border-primary py-2 text-base text-primary hover:bg-primary hover:text-white"
-                >返回</a
+                >返回</NuxtLink
               >
             </div>
             <div class="col-6">

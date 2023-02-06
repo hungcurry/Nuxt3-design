@@ -37,13 +37,6 @@ const { total } = storeToRefs(CartStore);
         <div class="col-lg-8 lg:flex lg:flex-col">
           <CardListRow />
           <div class="row pt-7 pb-10 lg:pt-3 lg:pb-0">
-            <div class="col-4 col-md-6 col-lg-3 hidden">
-              <a
-                href="./checkoutA"
-                class="btn-outline btn-lg btn h-auto w-full border-primary py-2 text-base text-primary hover:bg-primary hover:text-white"
-                >返回</a
-              >
-            </div>
             <div class="col-8 col-md-6 ml-[33.333%] md:ml-[50%]">
               <!-- 小計 -->
               <div

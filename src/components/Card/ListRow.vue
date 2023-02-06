@@ -1,8 +1,15 @@
 <script setup>
-const route = useRoute();
-const routeStr = route.href.slice(9, route.href.length);
 const CartStore = useCartStore();
 const { cartAry, patchCartItem, deleteItem } = CartStore;
+// path
+const route = useRoute();
+const path = ref(route.href.slice(9, route.href.length));
+watch(
+  () => route.path,
+  (newV, oldV) => {
+    path.value = newV.route.href.slice(9, route.href.length);
+  },
+);
 </script>
 <template>
   <ul
@@ -22,7 +29,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
           <span class="whitespace-nowrap">{{ list.name }}</span>
           <span
             class="material-icons cursor-pointer lg:hidden"
-            :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
+            :class="path === 'checkoutA' ? 'block' : 'hidden'"
             :data-orderId="list.orderId"
             @click="deleteItem(list.orderId)"
             >close</span
@@ -45,11 +52,11 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
       <!-- desktop-price -->
       <div
         class="col-lg-6 hidden items-center lg:flex"
-        :class="routeStr === 'checkoutA' ? 'justify-between' : 'justify-start'"
+        :class="path === 'checkoutA' ? 'justify-between' : 'justify-start'"
       >
         <div
           class="w-[11rem] text-m font-700"
-          :class="routeStr !== 'checkoutA' ? 'lg:mr-12' : ''"
+          :class="path !== 'checkoutA' ? 'lg:mr-12' : ''"
         >
           NT${{ useThousands(list.price * list.quantity) }}
         </div>
@@ -59,7 +66,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
               class="material-icons cursor-pointer select-none"
               :data-id="list.id"
               data-action="minus"
-              :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
+              :class="path === 'checkoutA' ? 'block' : 'hidden'"
               @click="patchCartItem(list.id, 'minus')"
               >remove</span
             >
@@ -74,7 +81,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
               class="material-icons cursor-pointer select-none"
               :data-id="list.id"
               data-action="add"
-              :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
+              :class="path === 'checkoutA' ? 'block' : 'hidden'"
               @click="patchCartItem(list.id, 'add')"
               >add</span
             >
@@ -82,7 +89,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
         </ul>
         <span
           class="material-icons cursor-pointer lg:mr-3"
-          :class="routeStr === 'checkoutA' ? 'block' : 'hidden'"
+          :class="path === 'checkoutA' ? 'block' : 'hidden'"
           :data-orderId="list.orderId"
           @click="deleteItem(list.orderId)"
           >close</span

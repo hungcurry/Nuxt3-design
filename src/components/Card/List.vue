@@ -1,8 +1,15 @@
 <script setup>
 const route = useRoute();
-const routeStr = route.href.slice(1, 8).toLowerCase();
 const CartStore = useCartStore();
 const { cartAry, patchCartItem, deleteItem } = CartStore;
+// path
+const path = ref(route.href.slice(1, 8).toLowerCase());
+watch(
+  () => route.path,
+  (newV, oldV) => {
+    path.value = newV.slice(1, 8).toLowerCase();
+  },
+);
 </script>
 <template>
   <div>
@@ -14,7 +21,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
       <div class="close lineHeight-none absolute left-1 top-1">
         <span
           class="material-icons block cursor-pointer"
-          :class="routeStr === 'process' ? 'hidden' : 'block'"
+          :class="path === 'process' ? 'hidden' : 'block'"
           :data-orderId="list.orderId"
           @click="deleteItem(list.orderId)"
           >close</span
@@ -45,7 +52,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
         <div class="lineHeight-none mb-1 lg:order-3 lg:mb-0">
           <span
             class="material-icons block cursor-pointer select-none"
-            :class="routeStr === 'process' ? 'hidden' : 'block'"
+            :class="path === 'process' ? 'hidden' : 'block'"
             :data-id="list.id"
             data-action="add"
             @click="patchCartItem(list.id, 'add')"
@@ -60,7 +67,7 @@ const { cartAry, patchCartItem, deleteItem } = CartStore;
         <div class="lineHeight-none mt-1 lg:order-first lg:mt-0">
           <span
             class="material-icons block cursor-pointer select-none"
-            :class="routeStr === 'process' ? 'hidden' : 'block'"
+            :class="path === 'process' ? 'hidden' : 'block'"
             :data-id="list.id"
             data-action="minus"
             @click="patchCartItem(list.id, 'minus')"

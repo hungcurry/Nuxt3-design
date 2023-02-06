@@ -11,13 +11,21 @@ const listArr = reactive([
   { name: '親子', path: '/Disabled/Child', isDisabled: true },
   { name: '期間限定', path: '/Disabled/Limited', isDisabled: true },
 ]);
+// path
+const isRender = ref(true);
 const route = useRoute();
-const routeStr = route.href.slice(1, 8).toLowerCase();
+const path = ref(route.href.slice(1, 8).toLowerCase());
+watch(
+  () => route.path,
+  (newV, oldV) => {
+    path.value = newV.slice(1, 8).toLowerCase();
+  },
+);
 </script>
 <template>
   <div
     class="nav-scroller border-b border-gray-600 bg-white"
-    :class="routeStr !== 'process' ? 'block' : 'hidden'"
+    v-if="path === 'process' ? !isRender : isRender"
   >
     <nav class="subNav md:px-6">
       <NuxtLink

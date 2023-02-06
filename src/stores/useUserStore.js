@@ -1,6 +1,7 @@
 export const UserStore = defineStore('user', () => {
   const router = useRouter();
   const CartStore = useCartStore();
+  const { CloseCart } = useModalStore();
   const { cartAry } = CartStore;
   // 總金額
   const { total } = storeToRefs(CartStore);
@@ -40,15 +41,17 @@ export const UserStore = defineStore('user', () => {
   const firstCheck = () => {
     if (cartAry.length === 0) {
       window.alert(`請加入 至少一個 購物車品項！`);
+      return;
     }
-    router.push({ path: `/Process/checkoutA` });
+    CloseCart();
+    router.replace({ path: `/Process/checkoutA` });
   };
   const nextCheck = () => {
     if (cartAry.length === 0) {
       window.alert(`請加入 至少一個 購物車品項！`);
       return;
     }
-    router.push({ path: `./checkoutB` });
+    router.replace({ path: `./checkoutB` });
   };
   const orderCheck = () => {
     if (
@@ -59,7 +62,7 @@ export const UserStore = defineStore('user', () => {
       window.alert(`請輸入 完整資料`);
       return;
     }
-    router.push({ path: `./checkoutC` });
+    router.replace({ path: `./checkoutC` });
   };
   const createOrder = () => {
     if (
@@ -82,7 +85,7 @@ export const UserStore = defineStore('user', () => {
     total.value = 0;
     // axios API 送出 user資料...
     // console.log(user);
-    router.push({ path: `./checkoutD` });
+    router.replace({ path: `./checkoutD` });
   };
 
   return {
