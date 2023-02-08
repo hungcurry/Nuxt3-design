@@ -23,27 +23,27 @@ const listAry = reactive({
   data: [
     {
       id: idx++,
-      backgroundImage: `url(https://i.ibb.co/FW098sB/01.jpg)`,
+      backgroundImage: `url(https://i.imgur.com/B2DoHlW.jpg)`,
       animationDuration: `${time}s`,
     },
     {
       id: idx++,
-      backgroundImage: `url(https://i.ibb.co/CKPkckd/02.jpg)`,
+      backgroundImage: `url(https://i.imgur.com/NkyfUOw.jpg)`,
       animationDuration: `${time}s`,
     },
     {
       id: idx++,
-      backgroundImage: `url(https://i.ibb.co/Y74640w/03.jpg)`,
+      backgroundImage: `url(https://i.imgur.com/aL9gdMf.jpg)`,
       animationDuration: `${time}s`,
     },
     {
       id: idx++,
-      backgroundImage: `url(https://i.ibb.co/xm0XC7N/04.jpg)`,
+      backgroundImage: `url(https://i.imgur.com/Ey3FAy3.jpg)`,
       animationDuration: `${time}s`,
     },
     {
       id: idx++,
-      backgroundImage: `url(https://i.ibb.co/QkP2Bxy/05.jpg)`,
+      backgroundImage: `url(https://i.imgur.com/obLCUJo.jpg)`,
       animationDuration: `${time}s`,
     },
   ],
