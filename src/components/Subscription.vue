@@ -29,7 +29,7 @@ watch(
           <div class="input-group">
             <input
               type="email"
-              class="form-control flex-grow text-base"
+              class="form-control flex-grow text-base text-muted"
               placeholder="輸入您的電子信箱"
             />
             <button

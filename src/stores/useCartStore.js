@@ -76,7 +76,81 @@ export const CartStore = defineStore('cart', () => {
   ]);
   const numPatch = ref(0);
   const total = ref(0);
-
+  const ticketNum = ref(1);
+  const ticketType = ref('全票');
+  const ticketPrice = ref(0);
+  const stDiscount = ref(100);
+  const loveDiscount = ref(50);
+  // ===================
+  // ... 加入購物車 ...
+  // ===================
+  const addCount = str => {
+    if (str === 'add') {
+      ticketNum.value += 1;
+    }
+    if (str === 'minus') {
+      ticketNum.value -= 1;
+      if (ticketNum.value < 1) {
+        ticketNum.value = 1;
+      }
+    }
+  };
+  const changePrice = (str, price) => {
+    ticketType.value = str;
+    switch (ticketType.value) {
+      case '學生':
+        ticketPrice.value = Number(price - stDiscount.value);
+        break;
+      case '愛心':
+        ticketPrice.value = Number(price - loveDiscount.value);
+        break;
+      default:
+        ticketPrice.value = Number(price - 0);
+        break;
+    }
+  };
+  // 重置票卷數量金額
+  const resetData = price => {
+    ticketNum.value = 1;
+    ticketType.value = '全票';
+    ticketPrice.value = price;
+  };
+  const addCart = postObj => {
+    const { id, name, src, price, firstDate, lastDate } = postObj;
+    // 判斷重複購物商品
+    const idAry = [];
+    if (cartAry.length >= 1) {
+      cartAry.forEach(function (item) {
+        idAry.push(item.id);
+      });
+      const isKey = idAry.includes(id);
+      if (isKey) {
+        resetData(price);
+        window.alert('產品 已經在購物車內');
+        return false;
+      }
+    }
+    const obj = {
+      orderId: '2PpFq' + Date.now(),
+      id,
+      name,
+      src,
+      price: ticketPrice.value,
+      type: ticketType.value,
+      firstDate,
+      lastDate,
+      quantity: ticketNum.value,
+    };
+    cartAry.push(obj);
+    // 總金額
+    updatePrice();
+    resetData(price);
+    window.alert('加入 購物車 成功');
+  };
+  // ===================
+  // ... 更新購物車 ...
+  // ===================
+  // 更新資料
   const patchCartItem = (id, str) => {
     // 先取得原本產品數量
     cartAry.forEach(item => {
@@ -94,40 +168,49 @@ export const CartStore = defineStore('cart', () => {
         numPatch.value = 1;
       }
     }
-    update(id);
-  };
-
-  // 更新
-  const update = id => {
+    // 模擬 axios API 送出 cart資料...
     cartAry.forEach(item => {
       if (item.id === id) {
         item.quantity = numPatch.value;
       }
     });
     // 總金額
+    updatePrice();
+  };
+  // 更新總金額
+  const updatePrice = () => {
     total.value = 0;
     cartAry.forEach(list => {
       total.value += list.price * list.quantity;
     });
   };
-
-  // 刪除資料
+  // ===================
+  // ... 刪除購物車 ...
+  // ===================
   const deleteItem = id => {
     const index = cartAry.findIndex(item => {
       return item.orderId === id;
     });
     cartAry.splice(index, 1);
     // 總金額
-    total.value = 0;
-    cartAry.forEach(list => {
-      total.value += list.price * list.quantity;
-    });
+    updatePrice();
   };
-
+  // 初始化金額
   onMounted(() => {
-    cartAry.forEach(list => {
-      total.value += list.price * list.quantity;
-    });
+    updatePrice();
   });
-  return { cartAry, patchCartItem, total, deleteItem };
+  return {
+    cartAry,
+    deleteItem,
+    // ---加入---
+    ticketNum,
+    ticketType,
+    addCount,
+    addCart,
+    // ---更新---
+    changePrice,
+    ticketPrice,
+    patchCartItem,
+    total,
+  };
 });

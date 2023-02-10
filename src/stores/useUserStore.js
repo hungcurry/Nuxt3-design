@@ -25,9 +25,13 @@ export const UserStore = defineStore('user', () => {
 
   const changeHandler = e => {
     const isNum = codeAry.value.includes(e.target.value);
-    if (isNum) {
+    if (isNum && total.value < 3000) {
+      isCode.value = false;
+      codePrice.value = 0;
+      codeMessage.value = '未達折扣門檻,金額3000';
+    } else if (isNum) {
       isCode.value = true;
-      codePrice.value = 2000;
+      codePrice.value = 1000;
       codeMessage.value = '優惠碼已生效';
     } else {
       isCode.value = false;
@@ -73,7 +77,7 @@ export const UserStore = defineStore('user', () => {
       window.alert(`請輸入 完整資料`);
       return;
     }
-    const user = {
+    const userData = {
       email: checkEmail.value,
       name: checkName.value,
       tel: checkPhone.value,
@@ -83,11 +87,23 @@ export const UserStore = defineStore('user', () => {
     };
     cartAry.length = 0;
     total.value = 0;
-    // axios API 送出 user資料...
-    // console.log(user);
+    // 模擬 axios API 送出 user資料...
+    // console.log(userData);
+    resetDate();
     router.replace({ path: `./checkoutD` });
   };
-
+  const resetDate = () => {
+    isCode.value = false;
+    codeMessage.value = '';
+    codePrice.value = '';
+    checkEmail.value = '';
+    checkName.value = '';
+    checkPhone.value = '';
+    checkCode.value = '測試碼:TG87526';
+    checkCredit.value = '';
+    checkDate.value = '';
+    checkPassword.value = '';
+  };
   return {
     isCode,
     codeMessage,

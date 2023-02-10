@@ -1,7 +1,7 @@
 <script setup>
-const store = useAddCount();
-const { addCount } = store;
-const { num } = storeToRefs(store);
+const CartStore = useCartStore();
+const { addCount, addCart, changePrice } = CartStore;
+const { ticketNum, ticketType, ticketPrice } = storeToRefs(CartStore);
 const props = defineProps({
   id: {
     type: Number,
@@ -33,6 +33,10 @@ const props = defineProps({
   },
 });
 const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
+// 金額初始化
+onMounted(() => {
+  ticketPrice.value = price.value;
+});
 </script>
 <template>
   <div class="row pt-11 pb-10 lg:pt-[8rem]">
@@ -74,24 +78,54 @@ const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
           class="count-item col-md-6 relative mb-8 flex-grow lg:mb-0 lg:pt-[12%]"
         >
           <p class="mb-6 flex items-center justify-center">
-            <span class="material-icons cursor-pointer select-none"
+            <span
+              class="material-icons cursor-pointer select-none"
+              :data-id="id"
+              data-action="minus"
+              @click="addCount('minus')"
               >remove</span
             >
-            <span class="mx-10 text-4xl font-700">01</span>
-            <span class="material-icons cursor-pointer select-none">add</span>
+            <span class="mx-10 text-4xl font-700">{{ ticketNum }}</span>
+            <span
+              class="material-icons cursor-pointer select-none"
+              :data-id="id"
+              data-action="add"
+              @click="addCount('add')"
+              >add</span
+            >
           </p>
           <p class="text-center font-300">張</p>
         </div>
         <!-- 價錢 -->
         <div class="count-item col-md-6 mb-8 flex-grow lg:mb-0 lg:pt-[12%]">
           <p class="mb-6 flex items-center justify-center text-secondary">
-            <span class="mx-2 text-4xl font-700">NT${{ price }}</span>
+            <span class="mx-2 text-4xl font-700"
+              >NT${{ useThousands(ticketPrice * ticketNum) }}</span
+            >
           </p>
           <p class="mb-1 text-center font-300">票種</p>
           <ul class="ticketType flex items-center justify-center text-center">
-            <li class="ticketType-item mr-1 px-4 py-2 xl:mr-3">學生</li>
-            <li class="ticketType-item active mr-1 px-4 py-2 xl:mr-3">全票</li>
-            <li class="ticketType-item px-4 py-2">愛心</li>
+            <li
+              class="ticketType-item mr-1 px-4 py-2 xl:mr-3"
+              :class="{ active: ticketType === '學生' }"
+              @click="changePrice('學生', price)"
+            >
+              學生
+            </li>
+            <li
+              class="ticketType-item mr-1 px-4 py-2 xl:mr-3"
+              :class="{ active: ticketType === '全票' }"
+              @click="changePrice('全票', price)"
+            >
+              全票
+            </li>
+            <li
+              class="ticketType-item px-4 py-2"
+              :class="{ active: ticketType === '愛心' }"
+              @click="changePrice('愛心', price)"
+            >
+              愛心
+            </li>
           </ul>
         </div>
         <!-- button -->
@@ -105,6 +139,7 @@ const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
           <button
             type="button"
             class="btn-secondary btn-lg btn w-1/2 text-base text-white md:px-12"
+            @click="addCart(props)"
             :data-id="id"
           >
             購買票券
@@ -138,6 +173,11 @@ const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
     &:hover,
     &.active {
       background-size: 100% 0.1rem;
+    }
+    &.active {
+      background: lighten(var.$secondary, 15%);
+      border-radius: 1rem;
+      color: var.$white;
     }
   }
 }

@@ -60,7 +60,7 @@ watch(
           >
         </div>
         <div
-          class="w-[3rem] select-none px-1 text-center text-m font-700 md:px-3 lg:w-[4.6rem]"
+          class="w-[3rem] select-none px-1 text-center text-m font-700 lg:w-[4.6rem] lg:px-3"
         >
           {{ list.quantity }}
         </div>

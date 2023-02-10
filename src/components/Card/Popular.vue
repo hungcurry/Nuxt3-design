@@ -6,7 +6,6 @@ const route = useRoute();
 const router = useRouter();
 const routeStr = route.path;
 const clickDetail = id => {
-  // console.log(id);
   router.push({ path: `/Product/${id}`, query: { router: `${routeStr}` } });
 };
 const contentData = computed(() => {
@@ -23,7 +22,9 @@ const contentData = computed(() => {
         class="row relative mb-4 bg-fourthly py-6 md:mx-0 md:mb-5 md:p-0"
       >
         <div class="col-md-4 imgBoxGroup md:px-0">
-          <div class="aspect-w-9 aspect-h-9 md:aspect-h-15 lg:aspect-h-9">
+          <div
+            class="aspect-w-9 aspect-h-9 md:aspect-h-15 lg:aspect-h-10 xl:aspect-h-9"
+          >
             <a
               href="javascript:;"
               class="linkArea"
@@ -65,6 +66,7 @@ const contentData = computed(() => {
             <div class="flex">
               <a
                 href="javascript:;"
+                @click="clickDetail(item.id)"
                 class="btn-primary btn-lg btn text-base text-white"
                 >購買票券</a
               >

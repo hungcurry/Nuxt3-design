@@ -81,7 +81,7 @@ const {
                 required
               />
             </div>
-            <small class="mb-10 block text-end text-primary">{{
+            <small class="mb-10 block text-end text-base text-primary">{{
               codeMessage
             }}</small>
           </form>

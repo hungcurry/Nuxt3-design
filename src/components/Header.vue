@@ -34,7 +34,7 @@ const clickMe = () => {
       >
         <span class="material-icons text-black">shopping_cart</span>
         <span
-          class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 rounded-full border-0 bg-secondary font-700 text-white"
+          class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border-0 bg-secondary font-700 text-white"
           >{{ cartAry.length }}
         </span>
       </a>
