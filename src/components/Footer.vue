@@ -4,6 +4,11 @@ const listAry = reactive([
   { name: 'Sign in', method: OpenSignIn },
   { name: 'Sign up', method: OpenSignUp },
 ]);
+const data = reactive({
+  copyright: 'All Rights Reserved.',
+  company: '僅用於個人學習使用，非商業用途',
+  year: '@' + new Date().getFullYear(),
+});
 </script>
 <template>
   <footer class="Footer bg-white">
@@ -13,7 +18,7 @@ const listAry = reactive([
           <a href="/">TICKET BAZAAR</a>
         </h5>
         <p class="copyright md:ml-4">
-          © 2023. All Rights Reserved. 僅用於個人學習使用，非商業用途。
+          {{ data.year }}. {{ data.copyright }} {{ data.company }}
         </p>
       </div>
       <div
