@@ -53,7 +53,7 @@ const { total } = storeToRefs(CartStore);
               <a
                 @click="nextCheck"
                 href="javascript:;"
-                class="btn-secondary btn-lg btn h-auto w-full py-2 align-middle text-base lg:hidden"
+                class="btn-secondary btn-lg btn h-auto w-full py-2 align-middle text-base text-white lg:hidden"
                 >下一步</a
               >
             </div>

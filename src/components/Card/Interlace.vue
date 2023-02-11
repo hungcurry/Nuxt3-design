@@ -26,7 +26,7 @@ const content = computed(() => {
             class="row"
             :class="{ 'flex-row-reverse text-primary': (idx + 1) % 2 === 0 }"
           >
-            <div class="col-lg-5 imgBox relative lg:order-2">
+            <div class="col-lg-5 imgBox relative mb-4 lg:order-2 lg:mb-0">
               <div class="aspect-w-9 aspect-h-6">
                 <a
                   href="javascript:;"
@@ -46,11 +46,11 @@ const content = computed(() => {
                 class="mb-2 text-m font-500 lg:mb-0 lg:flex lg:h-full lg:max-w-[6.5rem] lg:flex-col lg:justify-end lg:font-700"
               >
                 <p class="lg:text-m">
-                  <span class="lg:block">{{ item.firstDate[0] }}</span>
+                  <span class="mr-1 lg:block">{{ item.firstDate[0] }}</span>
                   <span class="lg:block">{{ item.firstDate[1] }}</span>
                   <span class="lg:hidden"> — </span>
                   <span class="hidden lg:block"> | </span>
-                  <span class="lg:block">{{ item.lastDate[0] }}</span>
+                  <span class="mr-1 lg:block">{{ item.lastDate[0] }}</span>
                   <span class="lg:block">{{ item.lastDate[1] }}</span>
                 </p>
               </div>

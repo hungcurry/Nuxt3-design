@@ -133,7 +133,6 @@ const { useName, useUpEmail, usePhone, useDate, useUpPassword } =
   }
   .form-control {
     background-color: #f7f7f7;
-    line-height: 2.2;
   }
 }
 .active {

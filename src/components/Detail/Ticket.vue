@@ -57,11 +57,11 @@ onMounted(() => {
           <!-- text -->
           <div class="textBox flex lg:flex-col lg:justify-between">
             <p class="lg:text-m lg:text-white">
-              <span class="lg:block">{{ firstDate[0] }}</span>
+              <span class="mr-1 lg:block">{{ firstDate[0] }}</span>
               <span class="lg:block">{{ firstDate[1] }}</span>
               <span class="lg:hidden"> — </span>
               <span class="hidden lg:block"> | </span>
-              <span class="lg:block">{{ lastDate[0] }}</span>
+              <span class="mr-1 lg:block">{{ lastDate[0] }}</span>
               <span class="lg:block">{{ lastDate[1] }}</span>
             </p>
           </div>
@@ -85,7 +85,9 @@ onMounted(() => {
               @click="addCount('minus')"
               >remove</span
             >
-            <span class="mx-10 text-4xl font-700">{{ ticketNum }}</span>
+            <span class="mx-10 w-[7rem] text-center text-4xl font-700">{{
+              ticketNum
+            }}</span>
             <span
               class="material-icons cursor-pointer select-none"
               :data-id="id"

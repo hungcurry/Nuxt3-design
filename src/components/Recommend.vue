@@ -58,7 +58,7 @@ watch(
                   <h4 class="text-lg font-700">{{ img.name }}</h4>
                   <p class="card-text text-m font-700 text-secondary">
                     NT$:
-                    <span class="text-xl">{{ img.price }}</span>
+                    <span class="text-xl">{{ useThousands(img.price) }}</span>
                   </p>
                   <span class="card-text mb-1 text-sm text-muted">{{
                     img.date

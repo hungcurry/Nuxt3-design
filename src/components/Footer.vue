@@ -17,9 +17,10 @@ const data = reactive({
         <h5 class="text-lg font-400 text-black" title="TICKET BAZAAR">
           <a href="/">TICKET BAZAAR</a>
         </h5>
-        <p class="copyright md:ml-4">
-          {{ data.year }}. {{ data.copyright }} {{ data.company }}
-        </p>
+        <div class="copyright justify-center md:ml-4 md:flex">
+          <p>{{ data.year }}. {{ data.copyright }}</p>
+          <p>{{ data.company }}</p>
+        </div>
       </div>
       <div
         class="hidden flex-grow basis-full items-center lg:flex lg:flex-grow-0 lg:basis-auto"

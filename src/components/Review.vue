@@ -17,7 +17,7 @@ import SlotTitle from '@/components/Slots/SlotTitle.vue';
             </h3>
             <img class="mb-3" src="@/assets/images/people.png" alt="people" />
             <p class="mb-2 text-m">臺北現代聯合總監｜Ken Hsu</p>
-            <p class="mb-4 text-m font-300">
+            <p class="mb-4 text-base font-300 md:text-m">
               獨家由藝術家、策展人、畫廊總監帶您欣賞台北藝術特展，感受雕塑、展演及當代日常文化之間微妙的關係。
             </p>
             <button

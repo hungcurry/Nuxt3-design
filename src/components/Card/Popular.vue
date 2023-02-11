@@ -58,7 +58,9 @@ const contentData = computed(() => {
               </div>
             </div>
             <p class="mb-2 flex-grow-0 text-m text-secondary">
-              NT$<span class="ml-1 text-xl">{{ item.price }}</span>
+              NT$<span class="ml-1 text-xl">{{
+                useThousands(item.price)
+              }}</span>
             </p>
             <p class="mb-5 flex-grow text-base line-clamp-3 md:text-m">
               {{ item.text }}
