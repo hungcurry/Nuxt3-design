@@ -24,8 +24,8 @@ const clickMe = () => {
       <button type="button" @click="clickMe" class="p-1 leading-none lg:hidden">
         <span class="material-icons">reorder</span>
       </button>
-      <h1 class="logo" title="EXHIBINECTION">
-        <a href="/" class="block text-lg text-primary">EXHIBINECTION</a>
+      <h1 class="logo" title="TICKET BAZAAR">
+        <a href="/" class="block text-lg text-primary">TICKET BAZAAR</a>
       </h1>
       <a
         href="javascript:;"

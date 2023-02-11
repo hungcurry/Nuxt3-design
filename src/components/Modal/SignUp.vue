@@ -74,7 +74,7 @@ const { useName, useUpEmail, usePhone, useDate, useUpPassword } =
             type="date"
             name="dataDate"
             id="useDate"
-            class="form-control w-full flex-row rounded-lg border-0 p-2 text-base focus:border-primary focus:ring-primary"
+            class="form-control w-full flex-row rounded-lg border-0 p-2 text-base text-muted focus:border-primary focus:ring-primary"
             placeholder="請輸入 生日"
             required
           />

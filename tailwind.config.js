@@ -22,8 +22,8 @@ module.exports = {
         },
       },
       colors: {
-        primary: '#630834',
-        secondary: '#e31277',
+        primary: '#613215',
+        secondary: '#e38d28',
         thirdly: '#190014',
         fourthly: '#efefef',
         muted: '#707070',
@@ -97,9 +97,9 @@ module.exports = {
     themes: [
       {
         light: {
-          neutral: '#191D24', // 基本
-          primary: '#630834',
-          secondary: '#e31277',
+          neutral: '#562b11', // 基本
+          primary: '#613215',
+          secondary: '#e38d28',
           accent: '#190014', // thirdly
           info: '#3ABFF8',
           success: '#36D399',

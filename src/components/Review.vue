@@ -22,7 +22,7 @@ import SlotTitle from '@/components/Slots/SlotTitle.vue';
             </p>
             <button
               type="button"
-              class="btn-secondary btn-lg btn px-9 py-2 text-base"
+              class="btn-secondary btn-lg btn px-9 py-2 text-base text-white"
             >
               點此觀看
             </button>

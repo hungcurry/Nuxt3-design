@@ -9,10 +9,12 @@ const listAry = reactive([
   <footer class="Footer bg-white">
     <div class="container py-3 lg:flex lg:justify-between lg:py-6">
       <div class="md:flex md:items-center">
-        <h5 class="text-lg font-400 text-black">
-          <a href="/">EXHIBINECTION</a>
+        <h5 class="text-lg font-400 text-black" title="TICKET BAZAAR">
+          <a href="/">TICKET BAZAAR</a>
         </h5>
-        <p class="copyright md:ml-4">© 2023. All Rights Reserved.</p>
+        <p class="copyright md:ml-4">
+          © 2023. All Rights Reserved. 僅用於個人學習使用，非商業用途。
+        </p>
       </div>
       <div
         class="hidden flex-grow basis-full items-center lg:flex lg:flex-grow-0 lg:basis-auto"

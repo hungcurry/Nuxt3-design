@@ -120,10 +120,10 @@ onUnmounted(() => {
           <h2
             class="text-gradient text-7xl font-700 md:text-6xl lg:text-[12rem]"
           >
-            Life on DESIGN
+            Life on TICKET
           </h2>
           <p class="text-muted md:mb-4 lg:text-lg">
-            針對在地生活、文化及產業發展特色，運用設計思考詮釋新時代的意涵，並以展覽呈現在地設計。
+            樂悠悠！無論您身在何處。提供廣泛的選擇，您可以輕鬆找到您喜愛的演出、活動、展覽。
           </p>
         </div>
       </div>

@@ -46,7 +46,7 @@ const {
                 type="date"
                 name="dataDate"
                 id="checkDate"
-                class="flex w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="flex w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="(MM/YY)"
                 required
               />

@@ -1,4 +1,5 @@
 <script setup>
+import design from '@/assets/images/design.ico';
 useHead({
   title: '樂悠悠 - 活動售票報名，精彩從此開始',
   htmlAttrs: {
@@ -11,20 +12,28 @@ useHead({
     // 禁止ios蘋果 將電話號碼轉成連結
     { name: 'format-detection', content: 'telephone=no' },
     // 網址列顏色
-    { name: 'theme-color', content: '#4285f4' },
+    { name: 'theme-color', content: '#ffffff' },
     // 網頁描述
-    { hid: 'description', name: 'description', content: '網站描述文字' },
+    {
+      hid: 'description',
+      name: 'description',
+      content:
+        '歡迎來到樂悠悠票務集市，在這裡，您可以輕鬆地享受現場活動的激动人心的時刻。我們的目標是讓每個人都能夠體驗娛樂的樂趣',
+    },
     // og: FB設定
-    { property: 'og:title', content: 'FB的標題' },
-    { property: 'og:description', content: 'FB的描述' },
+    { property: 'og:title', content: '樂悠悠票務集市' },
+    {
+      property: 'og:description',
+      content: 'Experience More with Ticket Bazaar',
+    },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'FB上的網址' },
     { property: 'og:image', content: 'FB的圖片' },
   ],
   link: [
     // 圖片
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'apple-touch-icon', href: '圖片路徑' },
+    { rel: 'icon', type: 'image/x-icon', href: design },
+    { rel: 'apple-touch-icon', href: design },
   ],
 });
 </script>

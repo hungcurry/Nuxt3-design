@@ -29,12 +29,12 @@ watch(
           <div class="input-group">
             <input
               type="email"
-              class="form-control flex-grow text-base text-muted"
+              class="form-control flex-grow text-base text-muted focus:border-primary focus:ring-primary"
               placeholder="輸入您的電子信箱"
             />
             <button
               type="button"
-              class="col-4 btn-secondary btn-lg btn text-base md:w-auto md:px-12"
+              class="col-4 btn-secondary btn-lg btn text-base text-white md:w-auto md:px-12"
             >
               訂閱
             </button>
