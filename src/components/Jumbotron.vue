@@ -18,36 +18,16 @@ const time = 10;
 const active = ref(0);
 const preActive = ref(0);
 let timeOver = null;
-let idx = 1;
-const listAry = reactive({
-  data: [
-    {
-      id: idx++,
-      backgroundImage: `url(https://i.imgur.com/B2DoHlW.jpg)`,
-      animationDuration: `${time}s`,
-    },
-    {
-      id: idx++,
-      backgroundImage: `url(https://i.imgur.com/NkyfUOw.jpg)`,
-      animationDuration: `${time}s`,
-    },
-    {
-      id: idx++,
-      backgroundImage: `url(https://i.imgur.com/aL9gdMf.jpg)`,
-      animationDuration: `${time}s`,
-    },
-    {
-      id: idx++,
-      backgroundImage: `url(https://i.imgur.com/Ey3FAy3.jpg)`,
-      animationDuration: `${time}s`,
-    },
-    {
-      id: idx++,
-      backgroundImage: `url(https://i.imgur.com/obLCUJo.jpg)`,
-      animationDuration: `${time}s`,
-    },
-  ],
-});
+// ===================
+// ... getData ...
+// ===================
+const listAry = reactive({ data: [] });
+const { useGet } = useData();
+const { result: getData } = await useGet(
+  `https://nuxt-api-mu.vercel.app/api/banners`,
+);
+listAry.data = getData.data;
+
 const styleHandle = (backgroundImage, animationDuration) => {
   return {
     backgroundImage,
@@ -133,7 +113,7 @@ onUnmounted(() => {
       :class="{ isActive: scroll }"
     >
       <li
-        v-for="(item, index) in listAry.data"
+        v-for="(item, index) in listAry?.data"
         :id="item.id"
         :key="item.id"
         :style="styleHandle(item.backgroundImage, item.animationDuration)"
