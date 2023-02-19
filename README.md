@@ -26,7 +26,7 @@ Demo： https://nuxt3-design.vercel.app/
 * 使用 Pinia 管理共用資料
 * 使用 Nuxt3 開發SSR網站以符合SEO需求
 * 使用 Props 保持單向資料流
-* 使用 Node開API(預計功能)
+* 使用 Node Express開API( 更新 )
 
 
 ### 使用技術/相關套件
@@ -46,6 +46,7 @@ Demo： https://nuxt3-design.vercel.app/
 1. 動態產品[id]頁
 1. 優惠碼判斷
 1. Vue組件模組化拆分
+1. 暗模式切換( 預計功能 )
 
 
 ### (一).首頁捲軸動畫
@@ -80,6 +81,8 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/TAVsIEO.jpg)
 
 ![](https://i.imgur.com/mU64W7b.jpg)
+
+![](https://i.imgur.com/FNE92Xw.png)
 
 
 ### (五).優惠碼判斷
