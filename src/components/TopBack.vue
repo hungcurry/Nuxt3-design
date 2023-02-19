@@ -19,6 +19,7 @@ const scrollToTopFn = () => {
   });
 };
 onMounted(() => {
+  backBtn.value = document.querySelector('.topBack');
   backBtn.value.addEventListener('click', scrollToTopFn);
   window.addEventListener('scroll', scrollFn);
 });
@@ -28,7 +29,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <div class="topBack" ref="backBtn"></div>
+  <div class="topBack"></div>
 </template>
 <style lang="scss" scoped>
 .topBack {
