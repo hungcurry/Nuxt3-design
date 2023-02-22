@@ -59,6 +59,9 @@ function TimeOver() {
     }, 3000);
   }
 }
+onMounted(() => {
+  router.push(`${route.fullPath}`);
+});
 // 離開頁面銷毀
 onUnmounted(() => {
   clearTimeout(cleanTimer);
