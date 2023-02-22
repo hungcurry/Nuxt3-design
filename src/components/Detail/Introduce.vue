@@ -1,14 +1,23 @@
 <script setup>
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
-const { detailObj } = useDetailStore();
 const props = defineProps({
   id: {
     type: Number,
     default: undefined,
   },
 });
+// ===================
+// ... getData ...
+// ===================
+const detailObj = reactive({ data: [] });
+const { useGet } = useData();
+const { result: getData } = await useGet(
+  `https://nuxt-api-mu.vercel.app/api/detail-product`,
+);
+detailObj.data = getData.data;
+
 // reduce重組資料
-const reduceObj = detailObj.reduce(function (prev, next) {
+const reduceObj = detailObj.data.reduce(function (prev, next) {
   const { id, title, type, description, src } = next;
   return {
     ...prev,

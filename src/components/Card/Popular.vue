@@ -1,15 +1,15 @@
 <script setup>
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
-// 產品資料
-const { listObj } = useProductStore();
 const route = useRoute();
 const router = useRouter();
+// 產品資料
+const { listObj } = useProductStore();
 const routeStr = route.path;
 const clickDetail = id => {
   router.push({ path: `/Product/${id}`, query: { router: `${routeStr}` } });
 };
 const contentData = computed(() => {
-  return listObj[routeStr];
+  return listObj.data[routeStr];
 });
 </script>
 <template>

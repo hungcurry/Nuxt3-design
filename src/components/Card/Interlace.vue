@@ -1,15 +1,14 @@
 <script setup>
-// 產品資料
-const { listObj } = useProductStore();
 const route = useRoute();
 const router = useRouter();
+// 產品資料
+const { listObj } = useProductStore();
 const routeStr = route.path.slice(1);
 const clickDetail = id => {
-  // console.log(id);
   router.push({ path: `/Product/${id}`, query: { router: `${routeStr}` } });
 };
 const content = computed(() => {
-  return listObj[routeStr];
+  return listObj.data[routeStr];
 });
 </script>
 <template>

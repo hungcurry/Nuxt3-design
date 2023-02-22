@@ -4,8 +4,16 @@ import { Autoplay, Pagination } from 'swiper';
 import SlotTitle from '@/components/Slots/SlotTitle.vue';
 // modules 這個要自己設定
 const modules = ref([Autoplay, Pagination]);
+// ===================
+// ... getData ...
+// ===================
 // swiper圖片
-const { listArr } = useSwiperStore();
+const swiperAry = reactive({ data: [] });
+const { useGet } = useData();
+const { result: getData } = await useGet(
+  `https://nuxt-api-mu.vercel.app/api/swiper`,
+);
+swiperAry.data = getData.data;
 // path
 const isRender = ref(true);
 const route = useRoute();
@@ -49,7 +57,7 @@ watch(
             :modules="modules"
             class="mySwiper"
           >
-            <swiper-slide v-for="img in listArr" :key="img.name">
+            <swiper-slide v-for="img in swiperAry.data" :key="img.name">
               <!-- card -->
               <div class="card relative">
                 <a href="javascript:;" class="linkArea"></a>
