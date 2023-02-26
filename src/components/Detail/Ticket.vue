@@ -1,6 +1,6 @@
 <script setup>
 const CartStore = useCartStore();
-const { addCount, addCart, changePrice } = CartStore;
+const { addCount, addCart, changePrice, resetData } = CartStore;
 const { ticketNum, ticketType, ticketPrice } = storeToRefs(CartStore);
 const props = defineProps({
   id: {
@@ -36,6 +36,10 @@ const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
 // 金額初始化
 onMounted(() => {
   ticketPrice.value = price.value;
+});
+// 離開頁面銷毀
+onUnmounted(() => {
+  resetData(price);
 });
 </script>
 <template>
