@@ -46,7 +46,7 @@ Demo： https://nuxt3-design.vercel.app/
 1. 動態產品[id]頁
 1. 優惠碼判斷
 1. Vue組件模組化拆分
-1. 暗模式切換( 預計功能 )
+1. 暗模式切換( 更新 )
 
 
 ### (一).首頁捲軸動畫
@@ -68,13 +68,13 @@ Demo： https://nuxt3-design.vercel.app/
 ### (三).動態Route [id]頁判斷
 > 正確路徑=> 轉址動態[id]頁
 
-![](https://i.imgur.com/RnpnQdA.png)
+![](https://i.imgur.com/cxGIAxT.png)
 
 > 錯誤路徑=>轉址回首頁
 
-![](https://i.imgur.com/YeSAqBr.png)
-![](https://i.imgur.com/v4nO8uL.png)
-![](https://i.imgur.com/no7KNwd.png)
+![](https://i.imgur.com/bjhPPNE.png)
+![](https://i.imgur.com/Ay1SVLb.png)
+![](https://i.imgur.com/0Cz6487.png)
 
 
 ### (四).錯誤頁處理
@@ -98,7 +98,14 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/nTGK8AC.jpg)
 
 
-### (六).Ｍodal製作
+### (六).暗模式切換 搭配
+> 1. 手刻 暗模式切換功能 
+> 2. 搭配localStorage 儲存使用者模式
+
+![](https://i.imgur.com/57FZzA9.png)
+
+
+### (七).Ｍodal製作
 > 1. 右下綠色框框連結，註冊與登入可以即時切換
 > 2. 橫向手機375測試，出現卷軸
 > 3. 拆分Modal和Backdrop元件
@@ -106,13 +113,13 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/HCu6Dpj.png)
 
 
-### (七).表單
+### (八).表單
 > 防呆: input輸入完整資料，才可進行下一步驟
 
 ![](https://i.imgur.com/dhOrSut.jpg)
 
 
-### (八).手刻元件
+### (九).手刻元件
 > 1. 元件：TimeLine
 > 2. 元件：手機選單
 > 3. 元件：ticket tabs選單
@@ -120,14 +127,14 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/73y46nN.jpg)
 
 
-### (九).細節注意處理
+### (十).細節注意處理
 > 1. 各解析度RWD，畫面順暢度
 > 2. 文案增減是否出現...
 > 3. 數字過長時，版面是否跑版
 > 4. 金額千分位符號
 
 
-### (十).圖片輪播
+### (十一).圖片輪播
 > 使用 Swiper 製作圖片輪播
 
 ![](https://i.imgur.com/OyrQm04.jpg)
