@@ -25,7 +25,6 @@ Demo： https://nuxt3-design.vercel.app/
 * 使用 Vue3 Composition開發
 * 使用 Pinia 管理共用資料
 * 使用 Nuxt3 開發SSR網站以符合SEO需求
-* 使用 Props 保持單向資料流
 * 使用 Node Express開API( 更新 )
 
 
@@ -33,7 +32,7 @@ Demo： https://nuxt3-design.vercel.app/
 * Composition API
 * Nuxt3、Vue Router、Pinia
 * Tailwind CSS 3.0
-* Daisyui、Element Plus
+* Daisyui
 * ESLint、Stylelint代碼規範與排版
 * SCSS
 * Swiper
@@ -47,6 +46,7 @@ Demo： https://nuxt3-design.vercel.app/
 1. 優惠碼判斷
 1. Vue組件模組化拆分
 1. 暗模式切換( 更新 )
+1. 分頁功能( 更新 )
 
 
 ### (一).首頁捲軸動畫
@@ -57,7 +57,7 @@ Demo： https://nuxt3-design.vercel.app/
 
 
 ### (二).購物車
-> 1. 功能:數量加減、刪除功能
+> 1. 功能:串接API 數量加減、刪除功能
 > 2. 防呆:購物車無產品時，無法前往結賬頁
 > 3. 判斷:進入結帳頁後，購物車無法調動數量與按鈕Disabled
 > 4. 手刻:Offcanvas元件
@@ -97,15 +97,22 @@ Demo： https://nuxt3-design.vercel.app/
 
 ![](https://i.imgur.com/nTGK8AC.jpg)
 
+### (六).分頁功能
+> 1. 分頁邏輯判斷  每頁取出３筆資料呈現
+> 2. 左右按鈕判斷  呈現下一筆資料或隱藏disabled
 
-### (六).暗模式切換 搭配
-> 1. 手刻 暗模式切換功能 
+![](https://i.imgur.com/ifX2nlb.png)
+
+
+
+### (七).暗模式切換 搭配
+> 1. 暗模式切換功能
 > 2. 搭配localStorage 儲存使用者模式
 
 ![](https://i.imgur.com/57FZzA9.png)
 
 
-### (七).Ｍodal製作
+### (八).Ｍodal製作
 > 1. 右下綠色框框連結，註冊與登入可以即時切換
 > 2. 橫向手機375測試，出現卷軸
 > 3. 拆分Modal和Backdrop元件
@@ -113,13 +120,13 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/HCu6Dpj.png)
 
 
-### (八).表單
+### (九).表單
 > 防呆: input輸入完整資料，才可進行下一步驟
 
 ![](https://i.imgur.com/dhOrSut.jpg)
 
 
-### (九).手刻元件
+### (十).手刻元件
 > 1. 元件：TimeLine
 > 2. 元件：手機選單
 > 3. 元件：ticket tabs選單
@@ -127,14 +134,14 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/73y46nN.jpg)
 
 
-### (十).細節注意處理
+### (十一).細節注意處理
 > 1. 各解析度RWD，畫面順暢度
 > 2. 文案增減是否出現...
 > 3. 數字過長時，版面是否跑版
 > 4. 金額千分位符號
 
 
-### (十一).圖片輪播
+### (十二).圖片輪播
 > 使用 Swiper 製作圖片輪播
 
 ![](https://i.imgur.com/OyrQm04.jpg)
