@@ -126,22 +126,7 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/dhOrSut.jpg)
 
 
-### (十).手刻元件
-> 1. 元件：TimeLine
-> 2. 元件：手機選單
-> 3. 元件：ticket tabs選單
-
-![](https://i.imgur.com/73y46nN.jpg)
-
-
-### (十一).細節注意處理
-> 1. 各解析度RWD，畫面順暢度
-> 2. 文案增減是否出現...
-> 3. 數字過長時，版面是否跑版
-> 4. 金額千分位符號
-
-
-### (十二).圖片輪播
+### (十).圖片輪播
 > 手刻Carousel 平移圖片輪播
 
 桌機
@@ -150,3 +135,19 @@ Demo： https://nuxt3-design.vercel.app/
 ![](https://i.imgur.com/f532PzV.png)
 手機
 ![](https://i.imgur.com/OuQ1YR7.png)
+
+
+### (十ㄧ).手刻元件
+> 1. 元件：TimeLine
+> 2. 元件：手機選單
+> 3. 元件：ticket tabs選單
+
+![](https://i.imgur.com/73y46nN.jpg)
+
+
+### (十二).細節注意處理
+> 1. 各解析度RWD，畫面順暢度
+> 2. 文案增減是否出現...
+> 3. 數字過長時，版面是否跑版
+> 4. 金額千分位符號
+
