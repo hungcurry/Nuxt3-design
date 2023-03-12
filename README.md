@@ -142,6 +142,11 @@ Demo： https://nuxt3-design.vercel.app/
 
 
 ### (十二).圖片輪播
-> 使用 Swiper 製作圖片輪播
+> 手刻Carousel 平移圖片輪播
 
-![](https://i.imgur.com/OyrQm04.jpg)
+桌機
+![](https://i.imgur.com/WMvTKnB.png)
+平板
+![](https://i.imgur.com/f532PzV.png)
+手機
+![](https://i.imgur.com/OuQ1YR7.png)
